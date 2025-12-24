@@ -1,12 +1,18 @@
 self.addEventListener("install", e => {
+  self.skipWaiting();
   e.waitUntil(
-    caches.open("snake-cache").then(cache => {
+    caches.open("snake-cache-v1").then(cache => {
       return cache.addAll([
         "./",
-        "./index.html"
+        "./index.html",
+        "./manifest.json"
       ]);
     })
   );
+});
+
+self.addEventListener("activate", e => {
+  e.waitUntil(self.clients.claim());
 });
 
 self.addEventListener("fetch", e => {
