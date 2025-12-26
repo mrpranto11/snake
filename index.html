@@ -68,7 +68,6 @@ input[type=color]{
 
 /* ===== MOBILE CONTROLS ===== */
 #controls{
-  display:none;
   margin-top:14px;
   text-align:center;
 }
@@ -89,10 +88,13 @@ input[type=color]{
   color:#000;
 }
 
-/* Show buttons only on mobile */
-@media(max-width:768px){
-  #controls{display:block;}
+/* Hide only on non-touch desktop */
+@media (hover: hover) and (pointer: fine) {
+  #controls{
+    display:none;
+  }
 }
+
 </style>
 </head>
 
